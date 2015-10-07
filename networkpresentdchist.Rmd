@@ -61,21 +61,29 @@ ggtitle("Annual Elected Members of APS, AAAS, and ANS") + ylab("Total Members El
 
 year <- ggplot(threelarge, aes(x=Year.Elected, fill= Organization ))
 year + geom_histogram(position = "dodge", binwidth = 1) +
-ggtitle("Annual Elected Members of APS and AAAS") + ylab("Total Members Elected") + xlab("Year Elected")
+ggtitle("Annual Elected Members of APS, AAAS and ANS") + ylab("Total Members Elected") + xlab("Year Elected")
 
 threelarge %>%
-  filter(Year.Elected ==1817) %>%
+  filter(Year.Elected ==1840) %>%
   graph.data.frame(directed = FALSE) %>%
   plot(vertex.label = NA)
-title("APS and AAAS Shared Membership 1781")
+title("APS, AAAS, ANS Shared Membership 1840")
 
 threelarge %>%
   filter(Year.Elected ==1830) %>%
   graph.data.frame(directed = FALSE) %>%
-  plot(vertex.label = NA)
+  plot
 title("APS, AAAS, ANS Shared Membership 1830")
 
 ```
+
+```{r}
+year <- ggplot(socdata, aes(x=Year.Elected, fill= Organization ))
+year + geom_histogram(position = "dodge", binwidth = 1) +
+ggtitle("Annual Elected Members of APS and AAAS") + ylab("Total Members Elected") + xlab("Year Elected")
+```
+
+
 
 Graph data frame of the "national" learned soceities.
 ```{r}
