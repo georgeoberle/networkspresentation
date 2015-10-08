@@ -43,10 +43,6 @@ Academy of Natural Sciences: “List of Members and Correspondents of the Academ
 threelarge = read.csv("~/Desktop/networkspresentation/data/test_APS_AAAS_ANS-1849.csv")
 ```
 
-```{r}
-
-```
-
 Graphing the membership APS/AAAS/ANS
 ```{r}
 #Load the data of the three large national institutions
@@ -77,13 +73,6 @@ title("APS, AAAS, ANS Shared Membership 1830")
 
 ```
 
-```{r}
-year <- ggplot(socdata, aes(x=Year.Elected, fill= Organization ))
-year + geom_histogram(position = "dodge", binwidth = 1) +
-ggtitle("Annual Elected Members of APS and AAAS") + ylab("Total Members Elected") + xlab("Year Elected")
-```
-
-
 
 Graph data frame of the "national" learned soceities.
 ```{r}
@@ -101,9 +90,6 @@ is.bipartite(threelarge_df)
 plot(threelarge_df, layout = layout.bipartite, vertex.label = NA)
 title("National Learned Societies in Early Republic", sub = "A bipartite layout of members and organizations",cex.main = 2,   font.main= 4, col.main= "blue", cex.sub = 0.75, font.sub = 3, col.sub = "red")
 ```
-
-
-
 full_members
 
 we can run our bipartite projection function and use the data_members
