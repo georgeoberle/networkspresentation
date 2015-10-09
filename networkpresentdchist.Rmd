@@ -184,7 +184,60 @@ title("Learned Societies", sub = "Weighted by Shared Members",cex.main = 2,   fo
 ```
 
 
+```{r}
+#Load the data of the the three plus columbian institute
+gov = read.csv("~/Desktop/networkspresentation/data/1822 government and columbianinstitute.csv")
+```
+
+Graph data frame of the "national" learned societies.
+```{r}
+gov_df <- graph.data.frame(gov, directed = FALSE)
+plot (gov_df)
+title("Network Graph of the 'national' Learned Societies", sub = "A network graph of members with name labels",cex.main = 2,   font.main= 4, col.main= "blue", cex.sub = 0.75, font.sub = 3, col.sub = "red")
+```
+
+Networks
+
+```{r}
+V(gov_df)
+bipartite.mapping(gov_df)
+V(gov_df)$type <- bipartite.mapping(gov_df)$type
+is.bipartite(gov_df)
+plot(gov_df, layout = layout.bipartite, vertex.label = NA)
+title("Learned Societies in Early Republic", sub = "A bipartite layout of members and organizations",cex.main = 2,   font.main= 4, col.main= "blue", cex.sub = 0.75, font.sub = 3, col.sub = "red")
+```
+full_members
+
+we can run our bipartite projection function and use the data_members
+
+```{r}
+members_gov <- bipartite.projection(gov_df)
+```
 
 
+```{r}
+plot(members_gov$proj2)
+title("National Learned Societies", sub = "Just the Organizations",cex.main = 2,   font.main= 4, col.main= "blue", cex.sub = 2, font.sub = 3, col.sub = "red")
+```
+
+assign edges
+```{r}
+E(members_gov$proj2)
+E(members_gov$proj2)$weight
+```
+
+Plot but hard to see.
+```{r}
+plot(members_gov$proj2, edge.width = E(members_gov$proj2)$weight)
+title("Big Three National Learned Societies", sub = "Weighted by Shared Members",cex.main = 2,   font.main= 4, col.main= "blue", cex.sub = 2, font.sub = 3, col.sub = "red")
+```
+
+This is the good one to use in paper
+```{r}
+plot(members_gov$proj2, edge.width = E(members_gov$proj2)$weight*0.2, layout = layout.fruchterman.reingold(members_gov$proj2, 
+       weights = E(members_gov$proj2)$weight),edge.label.cex=1,vertex.shape="circle",edge.color="red", vertex.size = 25, vertex.color="lightblue", asp=0, margin=0,  vertex.label.dist = 0, vertex.label.cex = .5)
+title("Learned Societies", sub = "Weighted by Shared Members",cex.main = 2,   font.main= 2, col.main= "blue", cex.sub = 2, font.sub = 3, col.sub = "red")  
+
+```
 
 
