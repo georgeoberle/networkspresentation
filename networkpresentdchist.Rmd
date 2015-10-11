@@ -172,15 +172,15 @@ E(members_col$proj2)
 E(members_col$proj2)$weight
 ```
 
-Plot but hard to see.
-```{r}
+Plot but hard to see.Don't use.
+
 plot(members_col$proj2, edge.width = E(members_col$proj2)$weight)
 title("Big Three National Learned Societies", sub = "Weighted by Shared Members",cex.main = 2,   font.main= 4, col.main= "blue", cex.sub = 2, font.sub = 3, col.sub = "red")
-```
+
 
 This is the good one to use in paper
 ```{r}
-plot(members_col$proj2, edge.width = E(members_col$proj2)$weight*0.2, layout = layout.fruchterman.reingold(members_col$proj2, 
+plot(members_col$proj2, edge.width = E(members_col$proj2)$weight*0.15, layout = layout.fruchterman.reingold(members_col$proj2, 
        weights = E(members_col$proj2)$weight),edge.label.cex=1,vertex.shape="circle",edge.color="red", vertex.size = 25, vertex.color="lightblue", asp=0, margin=0,  vertex.label.dist = 0, vertex.label.cex = .5)
 title("Learned Societies", sub = "Weighted by Shared Members",cex.main = 2,   font.main= 2, col.main= "blue", cex.sub = 2, font.sub = 3, col.sub = "red")  
 
