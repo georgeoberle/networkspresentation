@@ -229,18 +229,10 @@ E(members_dc$proj2)
 E(members_dc$proj2)$weight
 ```
 
-Plot but hard to see.
+Plot with DC Societies and Fed Govt 1822
 ```{r}
 plot(members_dc$proj2, edge.width = E(members_dc$proj2), layout = layout.fruchterman.reingold(members_dc$proj2, 
        weights = E(members_dc$proj2)$weight),edge.label.cex=1,vertex.shape="circle",edge.color="red", vertex.size = 25, vertex.color="lightblue", asp=0, margin=0,  vertex.label.dist = 0, vertex.label.cex = .5)
 title("DC Learned Societies", sub = "Weighted by Shared Members",cex.main = 2,   font.main= 2, col.main= "blue", cex.sub = 2, font.sub = 3, col.sub = "red")
-```
-
-This is the good one to use in paper
-```{r}
-plot(members_gov$proj2, edge.width = E(members_gov$proj2)$weight*0.2, layout = layout.fruchterman.reingold(members_gov$proj2, 
-       weights = E(members_gov$proj2)$weight),edge.label.cex=1,vertex.shape="circle",edge.color="red", vertex.size = 25, vertex.color="lightblue", asp=0, margin=0,  vertex.label.dist = 0, vertex.label.cex = .5)
-title("Learned Societies", sub = "Weighted by Shared Members",cex.main = 2,   font.main= 2, col.main= "blue", cex.sub = 2, font.sub = 3, col.sub = "red")  
-
 ```
 
