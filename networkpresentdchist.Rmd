@@ -56,6 +56,13 @@ threelarge %>%
   geom_line() +
 ggtitle("Annual Elected Members of APS, AAAS, and ANS") + ylab("Total Members Elected") + xlab("Year Elected")
 
+threelarge %>%
+  group_by(Year.Elected, Organization) %>%
+  summarize(n = n())  %>% 
+  ggplot(aes(x=Year.Elected, y= n, color = Organization )) +
+  geom_smooth() +
+ggtitle("Annual Elected Members of APS, AAAS, and ANS") + ylab("Total Members Elected") + xlab("Year Elected")
+
 #maybe group by decades?
 
 year <- ggplot(threelarge, aes(x=Year.Elected, fill= Organization ))
@@ -92,7 +99,7 @@ bipartite.mapping(threelarge_df)
 V(threelarge_df)$type <- bipartite.mapping(threelarge_df)$type
 is.bipartite(threelarge_df)
 plot(threelarge_df, layout = layout.bipartite, vertex.label = NA)
-title("National Learned Societies in Early Republic", sub = "A bipartite layout of members and organizations",cex.main = 2,   font.main= 4, col.main= "blue", cex.sub = 0.75, font.sub = 3, col.sub = "red")
+title("APS, AAAS, ANS", sub = "A bipartite layout of members and organizations",cex.main = 2,   font.main= 4, col.main= "blue", cex.sub = 0.75, font.sub = 3, col.sub = "red")
 ```
 full_members
 
@@ -122,16 +129,15 @@ title("Big Three National Learned Societies", sub = "Weighted by Shared Members"
 
 This is the good one to use in paper
 ```{r}
-plot(full_members$proj2, edge.width = E(full_members$proj2)$weight*0.2, layout = layout.fruchterman.reingold(full_members$proj2, 
-       weights = E(full_members$proj2)$weight),edge.label.cex=1,vertex.shape="circle",edge.color="red", vertex.size = 25, vertex.color="lightblue", asp=0, margin=0,  vertex.label.dist = 0, vertex.label.cex = .5)
-title("National Learned Societies", sub = "Weighted by Shared Members",cex.main = 2,   font.main= 2, col.main= "blue", cex.sub = 2, font.sub = 3, col.sub = "red")  
+plot(full_members$proj2, edge.width = E(full_members$proj2)$weight*0.2, layout = layout.fruchterman.reingold(full_members$proj2, weights = E(full_members$proj2)$weight),edge.label.cex=1,vertex.shape="circle",edge.color="red", vertex.size = 30, vertex.color="light blue", asp=0, margin=0,  vertex.label.dist = 0, vertex.label.cex = .75, vertex.label.color = "black")
+title("National Learned Societies", sub = "Weighted by Shared Members",cex.main = 2,   font.main= 2, col.main= "black", cex.sub = 2, font.sub = 3, col.sub = "black")  
 
 ```
 
 Add Columbian Institute, Columbian Agriculture and Medical Society of the District of Columbia.
 
 ```{r}
-#Load the data of the the three plus columbian institute
+#Load the data of the all the societies so far
 netsoc = read.csv("~/Desktop/networkspresentation/data/networksocieties.csv")
 ```
 
@@ -180,12 +186,17 @@ title("Big Three National Learned Societies", sub = "Weighted by Shared Members"
 
 This is the good one to use in paper
 ```{r}
-plot(members_col$proj2, edge.width = E(members_col$proj2)$weight*0.15, layout = layout.fruchterman.reingold(members_col$proj2, 
-       weights = E(members_col$proj2)$weight),edge.label.cex=1,vertex.shape="circle",edge.color="red", vertex.size = 25, vertex.color="lightblue", asp=0, margin=0,  vertex.label.dist = 0, vertex.label.cex = .5)
-title("Learned Societies", sub = "Weighted by Shared Members",cex.main = 2,   font.main= 2, col.main= "blue", cex.sub = 2, font.sub = 3, col.sub = "red")  
+plot(members_col$proj2, edge.width = E(members_col$proj2)$weight*0.10, layout = layout.fruchterman.reingold(members_col$proj2, 
+weights = E(members_col$proj2)$weight),edge.label.cex=1,vertex.shape="circle",edge.color="red", vertex.size = 25, vertex.color="lightblue", asp=0, margin=0,  vertex.label.dist = 0, vertex.label.cex = .5, vertex.label.color = "black")
+title("Learned Societies", sub = "Weighted by Shared Members",cex.main = 1,   font.main= 2, col.main= "black", cex.sub = 1, font.sub = 3, col.sub = "black")  
 
 ```
 
+
+```{r}
+
+
+```
 
 ```{r}
 #Load the data of the the three plus columbian institute
@@ -231,8 +242,67 @@ E(members_dc$proj2)$weight
 
 Plot with DC Societies and Fed Govt 1822
 ```{r}
-plot(members_dc$proj2, edge.width = E(members_dc$proj2), layout = layout.fruchterman.reingold(members_dc$proj2, 
-       weights = E(members_dc$proj2)$weight),edge.label.cex=1,vertex.shape="circle",edge.color="red", vertex.size = 25, vertex.color="lightblue", asp=0, margin=0,  vertex.label.dist = 0, vertex.label.cex = .5)
+plot(members_dc$proj2, edge.width = E(members_dc$proj2)$weight*.3, layout = layout.fruchterman.reingold(members_dc$proj2, weights = E(members_dc$proj2)$weight),edge.label.cex=1,vertex.shape="circle",edge.color="red", vertex.size = 25, vertex.color="lightblue", asp=0, margin=0,  vertex.label.dist = 0, vertex.label.cex = .5, vertex.label.color = "black")
+title("DC Learned Societies", sub = "Weighted by Shared Members",cex.main = 2,   font.main= 2, col.main= "black", cex.sub = 2, font.sub = 3, col.sub = "black")
+```
+
+
+
+
+
+#Load the data of the columbian institute and 1822 government and 1822 army This part is not working...
+
+```{r}
+dcgov = read.csv("~/Desktop/networkspresentation/data/1822_gov_col_army.csv")
+```
+
+Graph data frame of the "national" learned societies.
+```{r}
+dcgov_df <- graph.data.frame(dcgov, directed = FALSE)
+plot (dcgov_df)
+title("Network Graph of DC Gov", sub = "A network graph of members with name labels",cex.main = 2,   font.main= 4, col.main= "blue", cex.sub = 0.75, font.sub = 3, col.sub = "red")
+```
+
+Networks
+
+```{r}
+V(dcgov_df)
+bipartite.mapping(dcgov_df)
+V(dc_df)$type <- bipartite.mapping(dcgov_df)$type
+is.bipartite(dcgov_df)
+plot(dcgov_df, layout = layout.bipartite, vertex.label = NA)
+title("DC Learned Societies", sub = "A bipartite layout of members and organizations",cex.main = 2,   font.main= 4, col.main= "black", cex.sub = 0.75, font.sub = 3, col.sub = "black")
+```
+full_members
+
+we can run our bipartite projection function and use the data_members
+
+```{r}
+members_dc <- bipartite.projection(dc_df)
+```
+
+
+```{r}
+plot(members_dc$proj2)
+title("DC Societies", sub = "Just the Organizations",cex.main = 2,   font.main= 4, col.main= "blue", cex.sub = 2, font.sub = 3, col.sub = "red")
+```
+
+assign edges
+```{r}
+E(members_dc$proj2)
+E(members_dc$proj2)$weight
+
+```
+
+
+
+
+
+
+
+Plot with DC Societies and Fed Govt 1822
+```{r}
+plot(members_dc$proj2, edge.width = E(members_dc$proj2), layout = layout.fruchterman.reingold(members_dc$proj2, weights = E(members_dc$proj2)$weight),edge.label.cex=1,vertex.shape="circle",edge.color="red", vertex.size = 25, vertex.color="lightblue", asp=0, margin=0,  vertex.label.dist = 0, vertex.label.cex = .5)
 title("DC Learned Societies", sub = "Weighted by Shared Members",cex.main = 2,   font.main= 2, col.main= "blue", cex.sub = 2, font.sub = 3, col.sub = "red")
 ```
 
