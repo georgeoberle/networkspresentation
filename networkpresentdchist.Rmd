@@ -9,7 +9,7 @@ output: html_document
 
 Proposal Abstract
 In Democracy in America, Alexander de Tocqueville observed that “In democratic countries the science of association is the mother of science; the progress of all the rest depends upon the progress it has made.” Tocqueville noted that Americans formed numerous associations for distinct purposes and whose goals included establishing schools and churches, and spreading knowledge through the publication of information of interest to like-minded citizens.  The residents of the District of Columbia, America’s federal city, sought to create a thriving metropolis crowded with a vibrant and extensive community of scholars. Many hoped a national institution would materialize to promote the expansion of knowledge and learning. This paper explores the purpose and composition of the myriad societies in the early federal city, especially scientific, literary and proto-professional societies, 1815-1850. This paper examines the shared relationships between these groups using computational tools and methods to develop network analysis using society membership lists.
-New page.
+
 
 ```{r}
 #Load tools
