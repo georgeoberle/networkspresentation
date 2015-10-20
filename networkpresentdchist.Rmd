@@ -40,14 +40,14 @@ Academy of Natural Sciences: “List of Members and Correspondents of the Academ
 More Sources
 
 ```{r}
-threelarge = read.csv("~/Desktop/networkspresentation/data/test_APS_AAAS_ANS-1849.csv")
+threelarge = read.csv("data/test_APS_AAAS_ANS-1849.csv")
 
 ```
 
 Graphing the membership APS/AAAS/ANS
 ```{r}
 #Load the data of the three large national institutions
-threelarge = read.csv("~/Desktop/networkspresentation/data/test_APS_AAAS_ANS-1849.csv")
+threelarge = read.csv("data/test_APS_AAAS_ANS-1849.csv")
 
 threelarge %>%
   group_by(Year.Elected, Organization) %>%
@@ -80,7 +80,7 @@ title("APS, AAAS, ANS Elected Members 1840")
 
 Graph data frame of the "national" learned societies.
 ```{r}
-fourlarge = read.csv("~/Desktop/networkspresentation/data/four_orgs.csv")
+fourlarge = read.csv("data/four_orgs.csv")
 
 fourlarge_df <- graph.data.frame(fourlarge, directed = FALSE)
 plot (fourlarge_df)
@@ -133,7 +133,7 @@ title("Learned Societies", sub = "Weighted by Shared Members",cex.main = 2,   fo
 
 ```{r}
 #Load the data of the all the societies so far
-netsoc = read.csv("~/Desktop/networkspresentation/data/networksocieties.csv")
+netsoc = read.csv("data/networksocieties.csv")
 ```
 
 Graph data frame of the "national" learned societies.
@@ -200,7 +200,7 @@ title("Fraternal Societies", sub = "Weighted by Shared Members",cex.main = 3,   
 
 
 ```{r}
-national = read.csv("~/Desktop/networkspresentation/data/USMPS_APS_AAAS_ANS-1849.csv")
+national = read.csv("data/USMPS_APS_AAAS_ANS-1849.csv")
 ```
 
 Graph data frame of the "national" learned societies.
@@ -244,7 +244,7 @@ title("Large National Institutions", sub = "Weighted by Shared Members",cex.main
 
 #Load the data of the all the societies so far
 ```{r}
-netsoc = read.csv("~/Desktop/networkspresentation/data/networksocieties.csv")
+netsoc = read.csv("data/networksocieties.csv")
 ```
 
 Graph data frame of the "national" learned societies.
