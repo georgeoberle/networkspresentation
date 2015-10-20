@@ -25,6 +25,7 @@ library (stringr)
 library (dplyr)
 library (RColorBrewer)
 library (igraph)
+library (readr)
 ```
 
 ##Methods
@@ -144,14 +145,6 @@ plot (netsoc_df)
 title("Network Graph of the 'national' Learned Societies", sub = "A network graph of members with name labels",cex.main = 2,   font.main= 4, col.main= "blue", cex.sub = 0.75, font.sub = 3, col.sub = "red")
 ```
 
-```{r}
-V(netsoc)$shape <- ifelse(netsoc_df$Location, "square", "circle")
-V(netsoc)$color <- ifelse(netsoc_df$Location, "red", "lightblue")
-plot(netsoc_df)
-title("The Tudors, take two")
-plot(members_col$proj2)
-title("National Learned Societies", sub = "Just the Organizations",cex.main = 2,   font.main= 4, col.main= "blue", cex.sub = 2, font.sub = 3, col.sub = "red")
-```
 
 Networks
 
@@ -171,11 +164,6 @@ we can run our bipartite projection function and use the data_members
 members_col <- bipartite.projection(netsoc_df)
 ```
 
-```{r}
-V(members_col)$shape <- ifelse(members_col$Location, "square", "circle")
-V(members_col)$color <- ifelse(members_col$Location, "red", "lightblue")
-plot(members_col)
-```
 
 
 assign edges
@@ -196,36 +184,6 @@ title("Big Three National Learned Societies", sub = "Weighted by Shared Members"
 plot(members_col$proj2, edge.width = E(members_col$proj2)$weight*0.2, layout = layout.fruchterman.reingold(members_col$proj2,weights = E(members_col$proj2)$weight),edge.label.cex= 3,vertex.shape="circle",edge.color="red", vertex.size = 15, vertex.color="lightblue", asp=0, margin=0,  vertex.label.dist =0, vertex.label.cex = 3.5, vertex.label.color = "black")
 title("Fraternal Societies", sub = "Weighted by Shared Members",cex.main = 3,   font.main= 2, col.main= "black", cex.sub = 3, font.sub = 3, col.sub = "black")  
 
-```
-
-
-```{r}
-national = read.csv("data/USMPS_APS_AAAS_ANS-1849.csv")
-```
-
-Graph data frame of the "national" learned societies.
-```{r}
-nat_df <- graph.data.frame(national, directed = FALSE)
-plot (nat_df)
-title("Network Graph of the 'national' Learned Societies", sub = "A network graph of members with name labels",cex.main = 2,   font.main= 4, col.main= "blue", cex.sub = 0.75, font.sub = 3, col.sub = "red")
-```
-
-```{r}
-V(nat_df)
-bipartite.mapping(nat_df)
-V(nat_df)$type <- bipartite.mapping(nat_df)$type
-is.bipartite(nat_df)
-plot(nat_df, layout = layout.bipartite, vertex.label = NA)
-title("Learned Societies in Early Republic", sub = "A bipartite layout of members and organizations",cex.main = 2,   font.main= 4, col.main= "blue", cex.sub = 0.75, font.sub = 3, col.sub = "red")
-```
-
-```{r}
-members_nat <- bipartite.projection(nat_df)
-```
-
-```{r}
-plot(members_nat$proj2)
-title("National Learned Societies", sub = "Just the Organizations",cex.main = 2,   font.main= 4, col.main= "blue", cex.sub = 2, font.sub = 3, col.sub = "red")
 ```
 
 assign edges
@@ -307,4 +265,34 @@ title("Fraternal Societies", sub = "Weighted by Shared Members",cex.main = 3,   
 
 ```
 
+Full Network. 
+```{r}
+societies_edges <- read_csv("Data/societies-edge-attr.csv")
+societies_nodes <- read_csv("Data/societies-node-attr.csv")
+```
 
+```{r}
+societies_g <- graph_from_data_frame(societies_edges, directed = FALSE, societies_nodes)
+```
+
+uncomment to use comment to set
+```{r}
+#png(filename = "societies-network.png", width = 2400, height = 1600, res = 300, pointsize = 10)
+set.seed(845)
+par(mar = c(1, 1, 1, 1))
+l <- layout.fruchterman.reingold(societies_g, weights = E(societies_g))
+plot(societies_g, 
+     layout = l,
+     edge.width = E(societies_g)$weight * 0.4,
+     vertex.size = 15,
+     vertex.label.color = "black",
+     vertex.label.cex = 3,
+     edge.color="light blue")
+title("Early American Societies", font.main= 2) 
+
+```
+
+uncomment to use comment to set
+```{r}
+#dev.off()
+```
