@@ -187,17 +187,14 @@ title("Fraternal Societies", sub = "Weighted by Shared Members",cex.main = 3,   
 ```
 
 assign edges
-```{r}
+
 E(members_nat$proj2)
 E(members_nat$proj2)$weight
-```
 
-```{r}
+
 plot(members_nat$proj2, edge.width = E(members_nat$proj2)$weight*0.20, layout = layout.fruchterman.reingold(members_nat$proj2, 
 weights = E(members_nat$proj2)$weight),edge.label.cex=1,vertex.shape="circle",edge.color="red", vertex.size = 25, vertex.color="lightblue", asp=0, margin=0,  vertex.label.dist = 0, vertex.label.cex = 1.5, vertex.label.color = "black")
 title("Large National Institutions", sub = "Weighted by Shared Members",cex.main = 2.5,   font.main= 2, col.main= "black", cex.sub = 2, font.sub = 3, col.sub = "black")  
-
-```
 
 
 #Load the data of the all the societies so far
@@ -218,36 +215,29 @@ title("Network Graph of the 'national' Learned Societies", sub = "A network grap
 
 Networks
 
-```{r}
 V(netsoc_df)
 bipartite.mapping(netsoc_df)
 V(netsoc_df)$type <- bipartite.mapping(netsoc_df)$type
 is.bipartite(netsoc_df)
 plot(netsoc_df, layout = layout.bipartite, vertex.label = NA)
 title("Learned Societies in Early Republic", sub = "A bipartite layout of members and organizations",cex.main = 2,   font.main= 4, col.main= "blue", cex.sub = 0.75, font.sub = 3, col.sub = "red")
-```
 full_members
 
 we can run our bipartite projection function and use the data_members
 
-```{r}
+
 members_col <- bipartite.projection(netsoc_df)
 
-```
-
-
-```{r}
 plot(members_col$proj2)
 
 
 title("National Learned Societies", sub = "Just the Organizations",cex.main = 2,   font.main= 4, col.main= "blue", cex.sub = 2, font.sub = 3, col.sub = "red")
-```
+
 
 assign edges
-```{r}
+
 E(members_col$proj2)
 E(members_col$proj2)$weight
-```
 
 Plot but hard to see.Don't use.
 
