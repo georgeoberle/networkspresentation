@@ -280,7 +280,7 @@ members_col <- bipartite.projection(netsoc_df)
 
 ```{r}
 plot(members_col$proj2)
-plot (members_col$proj1)
+
 
 title("National Learned Societies", sub = "Just the Organizations",cex.main = 2,   font.main= 4, col.main= "blue", cex.sub = 2, font.sub = 3, col.sub = "red")
 ```
@@ -303,7 +303,6 @@ This is the good one to use in paper. I made the labels black to help with displ
 plot(members_col$proj2, edge.width = E(members_col$proj2)$weight*0.4, layout = layout.fruchterman.reingold(members_col$proj2, 
 weights = E(members_col$proj2)$weight),edge.label.cex=2,vertex.shape="circle",edge.color="red", vertex.size = 10, vertex.color="lightblue", asp=0, margin=0,  vertex.label.dist = 0, vertex.label.cex = 2.5, vertex.label.color = "black")
 title("Fraternal Societies", sub = "Weighted by Shared Members",cex.main = 3,   font.main= 2, col.main= "black", cex.sub = 2.5, font.sub = 3, col.sub = "black") 
-
 
 
 ```
