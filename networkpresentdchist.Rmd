@@ -256,16 +256,12 @@ netsoc = read.csv("~/Desktop/networkspresentation/data/networksocieties.csv")
 Graph data frame of the "national" learned societies.
 ```{r}
 netsoc_df <- graph.data.frame(netsoc, directed = FALSE)
-plot(members_col)
+V(netsoc_df)$shape <- ifelse(netsoc_df$color == "red",
+"square", "circle")
 plot (netsoc_df)
 title("Network Graph of the 'national' Learned Societies", sub = "A network graph of members with name labels",cex.main = 2,   font.main= 4, col.main= "blue", cex.sub = 0.75, font.sub = 3, col.sub = "red")
 ```
 
-V(netsoc_df)$shape <- ifelse(netsoc_df$Washington, "square", "circle")
-
-
-V(netsoc_df)$color <- ifelse(netsoc_df$Location, "red", "lightblue")
-plot(netsoc_df)
 
 
 Networks
@@ -284,11 +280,14 @@ we can run our bipartite projection function and use the data_members
 
 ```{r}
 members_col <- bipartite.projection(netsoc_df)
+
 ```
 
 
 ```{r}
 plot(members_col$proj2)
+plot (members_col$proj1)
+
 title("National Learned Societies", sub = "Just the Organizations",cex.main = 2,   font.main= 4, col.main= "blue", cex.sub = 2, font.sub = 3, col.sub = "red")
 ```
 
