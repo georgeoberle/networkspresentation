@@ -1,0 +1,76 @@
+"from","to","weight"
+"Columbian Institute for the Promotion of Arts and Sciences","National Institute for the Promotion of Science",14
+"Columbian Institute for the Promotion of Arts and Sciences","Medical Society of the District of Columbia",6
+"Columbian Institute for the Promotion of Arts and Sciences","American Academy of Arts and Sciences",12
+"Columbian Institute for the Promotion of Arts and Sciences","Federal Government",16
+"Columbian Institute for the Promotion of Arts and Sciences","1816 Army",10
+"Columbian Institute for the Promotion of Arts and Sciences","American Philosophical Society",19
+"Columbian Institute for the Promotion of Arts and Sciences","Academy of Natural Sciences",7
+"Columbian Institute for the Promotion of Arts and Sciences","1822 Army",8
+"Columbian Institute for the Promotion of Arts and Sciences","United States Military Philosophical Society",7
+"Columbian Institute for the Promotion of Arts and Sciences","American Association for the Advancement of Science",7
+"Columbian Institute for the Promotion of Arts and Sciences","1841 Federal Government",7
+"Columbian Institute for the Promotion of Arts and Sciences","Baptist General Convention",1
+"American Academy of Arts and Sciences","National Institute for the Promotion of Science",7
+"American Academy of Arts and Sciences","Federal Government",2
+"American Academy of Arts and Sciences","American Association for the Advancement of Science",107
+"American Academy of Arts and Sciences","United States Military Philosophical Society",17
+"American Academy of Arts and Sciences","1822 Army",5
+"American Academy of Arts and Sciences","1816 Army",9
+"American Academy of Arts and Sciences","American Philosophical Society",96
+"American Academy of Arts and Sciences","1841 Federal Government",4
+"American Academy of Arts and Sciences","Academy of Natural Sciences",34
+"American Academy of Arts and Sciences","Medical Society of the District of Columbia",4
+"Academy of Natural Sciences","American Philosophical Society",91
+"Academy of Natural Sciences","National Institute for the Promotion of Science",7
+"Academy of Natural Sciences","1822 Army",3
+"Academy of Natural Sciences","1816 Army",7
+"Academy of Natural Sciences","Federal Government",2
+"Academy of Natural Sciences","American Association for the Advancement of Science",62
+"Academy of Natural Sciences","United States Military Philosophical Society",4
+"Academy of Natural Sciences","1841 Federal Government",1
+"Academy of Natural Sciences","Medical Society of the District of Columbia",2
+"American Philosophical Society","National Institute for the Promotion of Science",12
+"American Philosophical Society","American Association for the Advancement of Science",55
+"American Philosophical Society","United States Military Philosophical Society",30
+"American Philosophical Society","Federal Government",6
+"American Philosophical Society","Baptist General Convention",1
+"American Philosophical Society","Medical Society of the District of Columbia",7
+"American Philosophical Society","1816 Army",10
+"American Philosophical Society","1841 Federal Government",3
+"American Philosophical Society","1822 Army",8
+"American Philosophical Society","Columbian Agricultural Society",3
+"Columbian Agricultural Society","United States Military Philosophical Society",2
+"Columbian Agricultural Society","Medical Society of the District of Columbia",1
+"Columbian Agricultural Society","American Association for the Advancement of Science",1
+"Columbian Agricultural Society","Federal Government",1
+"Columbian Agricultural Society","1841 Federal Government",1
+"Medical Society of the District of Columbia","National Institute for the Promotion of Science",3
+"Medical Society of the District of Columbia","1841 Federal Government",1
+"Medical Society of the District of Columbia","1816 Army",2
+"Medical Society of the District of Columbia","1822 Army",3
+"Medical Society of the District of Columbia","American Association for the Advancement of Science",1
+"National Institute for the Promotion of Science","Federal Government",11
+"National Institute for the Promotion of Science","1822 Army",5
+"National Institute for the Promotion of Science","1816 Army",8
+"National Institute for the Promotion of Science","American Association for the Advancement of Science",9
+"National Institute for the Promotion of Science","United States Military Philosophical Society",1
+"National Institute for the Promotion of Science","1841 Federal Government",30
+"American Association for the Advancement of Science","United States Military Philosophical Society",7
+"American Association for the Advancement of Science","1822 Army",7
+"American Association for the Advancement of Science","1816 Army",9
+"American Association for the Advancement of Science","Federal Government",4
+"American Association for the Advancement of Science","1841 Federal Government",8
+"American Association for the Advancement of Science","Baptist General Convention",2
+"United States Military Philosophical Society","1822 Army",8
+"United States Military Philosophical Society","1816 Army",10
+"United States Military Philosophical Society","Federal Government",5
+"United States Military Philosophical Society","1841 Federal Government",2
+"United States Military Philosophical Society","Baptist General Convention",1
+"Baptist General Convention","1841 Federal Government",2
+"Baptist General Convention","Federal Government",2
+"1822 Army","1816 Army",144
+"1822 Army","1841 Federal Government",3
+"Federal Government","1841 Federal Government",53
+"Federal Government","1816 Army",3
+"1816 Army","1841 Federal Government",5
