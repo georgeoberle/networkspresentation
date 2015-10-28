@@ -265,24 +265,40 @@ societies_nodes <- read_csv("Data/societies-node-attr.csv")
 societies_g <- graph_from_data_frame(societies_edges, directed = FALSE, societies_nodes)
 ```
 
-uncomment to use comment to set
+New Version
+
 ```{r}
+#png(filename = "societies-network.png", width = 2400, height = 1600, res = 300, pointsize = 10)
+set.seed(845)
+par(mar = c(1, 1, 1, 1))
+l <- layout.star(societies_g)
+plot(societies_g, 
+     layout = l,
+     edge.width = E(societies_g)$weight * 0.45,
+     vertex.size = 10,
+     vertex.label.color = "black",
+     vertex.label.cex = .2,
+     edge.color="blue")
+title("Early American Societies", font.main= 3) 
+
+```
+uncomment to use comment to set
+
 #png(filename = "societies-network.png", width = 2400, height = 1600, res = 300, pointsize = 10)
 set.seed(845)
 par(mar = c(1, 1, 1, 1))
 l <- layout.fruchterman.reingold(societies_g, weights = E(societies_g))
 plot(societies_g, 
      layout = l,
-     edge.width = E(societies_g)$weight * 0.4,
+     edge.width = E(societies_g)$weight * 0.3,
      vertex.size = 15,
      vertex.label.color = "black",
      vertex.label.cex = 3,
-     edge.color="light blue")
+     edge.color="blue")
 title("Early American Societies", font.main= 2) 
 
 ```
 
 uncomment to use comment to set
-```{r}
 #dev.off()
-```
+
