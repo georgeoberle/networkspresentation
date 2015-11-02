@@ -223,18 +223,19 @@ par(mar = c(1, 1, 1, 1))
 l <- layout.star(societies_g)
 plot(societies_g, 
      layout = l,
-     edge.width = E(societies_g)$weight * 0.45,
-     vertex.size = 10,
-     vertex.label.cex = .2,
+     edge.width = E(societies_g)$weight * 0.40,
+     vertex.size = V(societies_g)$size *0.065,
      vertex.label.color = "black",
-     edge.color="blue")
-title("Early American Societies", font.main= 3) 
+     vertex.label.cex = 2.5,
+     edge.color="dodgerblue"),
+title ("Early American Societies", font.main= 2)
+legend=c("Washington", "Other")
 
 
 ```
 
 
-
+vertex.label.cex = 3,
 
 uncomment to use comment to set
 
